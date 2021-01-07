@@ -16,7 +16,22 @@ const DrinksService = {
           .on('d.id', 'r.drink_id')
           .on('r.user_id', user_id)
       })
-      .where( {shop_id })
+      .where({ shop_id })
+  },
+  getUserDrinksWithRatings(knex, shop_id, user_id) {
+    return knex
+      .select('d.id', 'd.drink_name', 'd.shop_id', 'r.id as rating_id', 'r.user_id', 'r.rating')
+      .from('bobatier_drinks as d')
+      .join('bobatier_ratings as r', function () {
+        this
+          .on('d.id', 'r.drink_id')
+          .on('r.user_id', user_id)
+      })
+      .modify(function(filter) {
+        if (shop_id !== 'all') {
+          filter.where({ shop_id })
+        }
+      })
   },
   insertDrink(knex, newDrink) {
     return knex

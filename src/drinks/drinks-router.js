@@ -73,7 +73,7 @@ drinksRouter
 
   
 drinksRouter
-  .get('/rating/:shop_id', requireAuth, (req, res, next) => {
+  .get('/shops/:shop_id', requireAuth, (req, res, next) => {
     const db = req.app.get('db')
     const shop_id = req.params.shop_id
     const user_id = req.user.id
@@ -86,13 +86,15 @@ drinksRouter
   })
 
 drinksRouter
-  .route('/shop/:shop_id')
-  .get((req, res, next) => {
+  .route('/ratings/:shop_id')
+  .get(requireAuth, (req, res, next) => {
     const db = req.app.get('db')
+    const shop_id = req.params.shop_id
+    const user_id = req.user.id
 
-    DrinksService.getByShop(db, req.params.shop_id)
+    DrinksService.getUserDrinksWithRatings(db, shop_id, user_id)
       .then(drinks => {
-        res.json(drinks.map(serializeDrink))
+        res.json(drinks.map(serializeDrinkWithRating))
       })
       .catch(next)
   })
