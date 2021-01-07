@@ -1,33 +1,40 @@
 BEGIN;
 
 TRUNCATE
+  bobatier_comments,
   bobatier_ratings,
   bobatier_drinks,
   bobatier_shops,
   bobatier_users;
 
+INSERT INTO bobatier_users (id, user_name, first_name, last_name, password)
+VALUES
+  (1001, 'Matcha_lover', 'Matcha', 'Lover', 'password'),
+  (1002, 'BobaTeaGuy', 'Boba', 'Tea', 'password'),
+  (1003, 'Jisoo', 'Jisoo', 'Kim', 'password');
+
 INSERT INTO bobatier_shops (id, shop_name, city, state)
 VALUES
   (1, 'Gongcha', 'Houston', 'TX'),
-  (2, 'Sharetea', 'Houston' 'TX'),
-  (3, 'Kung Fu Tea', 'Houston' 'TX'),
-  (4, 'Ding Tea', 'Houston' 'TX'),
-  (5, 'The Teahouse', 'Houston' 'TX'),
-  (6, 'Bubble Tea House', 'Houston' 'TX'),
-  (7, '7 Leaves Cafe', 'Houston' 'TX'),
-  (8, 'Teaholic', 'Houston' 'TX'),
-  (9, 'Feng Cha', 'Houston' 'TX'),
-  (10, 'BoBa Island', 'Houston' 'TX'),
-  (11, 'Kim''s Teahouse', 'Houston' 'TX'),
-  (12, 'Teapresso Bar', 'Houston' 'TX'),
-  (13, 'Tea Top', 'Houston' 'TX'),
-  (14, 'Tiger Sugar', 'Houston' 'TX'),
-  (15, 'Nu Ice & Drinks', 'Houston' 'TX'),
-  (16, 'Yumcha', 'Houston' 'TX'),
-  (17, 'Boba City', 'Houston' 'TX'),
-  (18, 'The Boba Spot', 'Houston' 'TX'),
-  (19, 'I Heart Boba', 'Houston' 'TX'),
-  (20, 'Bobo Tea', 'Houston' 'TX');
+  (2, 'Sharetea', 'Houston', 'TX'),
+  (3, 'Kung Fu Tea', 'Houston', 'TX'),
+  (4, 'Ding Tea', 'Houston', 'TX'),
+  (5, 'The Teahouse', 'Houston', 'TX'),
+  (6, 'Bubble Tea House', 'Houston', 'TX'),
+  (7, '7 Leaves Cafe', 'Houston', 'TX'),
+  (8, 'Teaholic', 'Houston', 'TX'),
+  (9, 'Feng Cha', 'Houston', 'TX'),
+  (10, 'BoBa Island', 'Houston', 'TX'),
+  (11, 'Kim''s Teahouse', 'Houston', 'TX'),
+  (12, 'Teapresso Bar', 'Houston', 'TX'),
+  (13, 'Tea Top', 'Houston', 'TX'),
+  (14, 'Tiger Sugar', 'Houston', 'TX'),
+  (15, 'Nu Ice & Drinks', 'Houston', 'TX'),
+  (16, 'Yumcha', 'Houston', 'TX'),
+  (17, 'Boba City', 'Houston', 'TX'),
+  (18, 'The Boba Spot', 'Houston', 'TX'),
+  (19, 'I Heart Boba', 'Houston', 'TX'),
+  (20, 'Bobo Tea', 'Houston', 'TX');
 
 INSERT INTO bobatier_drinks (id, drink_name, shop_id)
 VALUES
@@ -136,5 +143,19 @@ VALUES
   (714, 'Sunset Passion', 7),
   (715, 'Assam Milk Tea', 7),
   (716, 'Oolong Milk Tea', 7);
+
+INSERT INTO bobatier_ratings (id, user_id, drink_id, rating)
+VALUES
+  (9001, 1001, 101, 5),
+  (9002, 1001, 703, 5),
+  (9003, 1002, 101, 3),
+  (9004, 1002, 311, 3),
+  (9005, 1003, 703, 5),
+  (9006, 1003, 207, 5);
+
+INSERT INTO bobatier_comments (id, text, shop_id, user_id)
+VALUES
+  (1001, 'I really liked the Kiwi Fruit Tea in this place!', 2, 1003),
+  (1002, 'I agree with Jisoo!', 2, 1002);
 
 COMMIT;

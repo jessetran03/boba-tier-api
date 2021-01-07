@@ -7,7 +7,8 @@ const shopsRouter = express.Router()
 const serializeshop = shop => ({
   id: shop.id,
   shop_name: xss(shop.shop_name),
-  muscle: shop.muscle,
+  city: shop.city,
+  state: shop.state,
 })
 
 shopsRouter
@@ -29,7 +30,21 @@ shopsRouter
       id: res.shop.id,
       shop_name: res.shop.shop_name,
       city: res.shop.city,
+      state: res.shop.state
     })
+  })
+
+shopsRouter.route('/:shop_id/comments/')
+  .all(checkShopExists)
+  .get((req, res, next) => {
+    ShopsService.getCommentsForShop(
+      req.app.get('db'),
+      req.params.shop_id
+    )
+      .then(comments => {
+        res.json(comments.map(ShopsService.serializeShopComment))
+      })
+      .catch(next)
   })
 
 async function checkShopExists(req, res, next) {

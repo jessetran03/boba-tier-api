@@ -9,6 +9,7 @@ const authRouter = require('./auth/auth-router')
 const shopsRouter = require('./shops/shops-router')
 const drinksRouter = require('./drinks/drinks-router')
 const ratingsRouter = require('./ratings/ratings-router')
+const commentsRouter = require('./comments/comments-router')
 
 const app = express()
 
@@ -25,6 +26,7 @@ app.use('/api/auth', authRouter)
 app.use('/api/shops', shopsRouter)
 app.use('/api/drinks', drinksRouter)
 app.use('/api/ratings', ratingsRouter)
+app.use('/api/comments', commentsRouter)
 
 app.get('/', (req, res) => {
   res.send('Hello, world!')

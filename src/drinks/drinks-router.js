@@ -16,6 +16,7 @@ const serializeDrinkWithRating = drink => ({
   id: drink.id,
   drink_name: drink.drink_name,
   shop_id: drink.shop_id,
+  shop_name: drink.shop_name,
   user_id: drink.user_id,
   rating_id: drink.rating_id,
   rating: drink.rating
