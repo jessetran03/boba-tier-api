@@ -1,0 +1,39 @@
+{
+  "name": "boba-tier-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require test/setup.js",
+    "dev": "nodemon src/server.js",
+    "migrate": "postgrator --config postgrator-config.js",
+    "start": "node src/server.js",
+    "predeploy": "npm audit",
+    "deploy": "git push heroku master"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "auth-service": "^1.0.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-auth": "^2.0.1",
+    "knex": "^0.21.15",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "pg": "^8.5.1",
+    "xss": "^1.0.8"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6",
+    "postgrator-cli": "^3.2.0",
+    "supertest": "^6.0.1"
+  }
+}
