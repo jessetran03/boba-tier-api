@@ -57,6 +57,7 @@ ratingsRouter
 
   ratingsRouter
     .route('/:rating_id')
+    .all(checkRatingExists)
     .patch(requireAuth, jsonParser, (req, res, next) => {
       const newRating = req.body.rating
 
@@ -67,8 +68,7 @@ ratingsRouter
       )
         .then(rating => {
           res
-            .status(201)
-            .json(serializeRating(rating))
+            .status(204)
         })
         .catch(next)
     })
@@ -100,7 +100,7 @@ ratingsRouter
         res.status(204).end()
       })
       .catch(next)
-  })
+  })*/
 
 // async/await syntax for promises 
 async function checkRatingExists(req, res, next) {
@@ -120,6 +120,6 @@ async function checkRatingExists(req, res, next) {
   } catch (error) {
     next(error)
   }
-}*/
+}
 
 module.exports = ratingsRouter
