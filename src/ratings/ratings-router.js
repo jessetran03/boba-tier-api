@@ -57,7 +57,6 @@ ratingsRouter
 
   ratingsRouter
     .route('/:rating_id')
-    .all(checkRatingExists)
     .patch(requireAuth, jsonParser, (req, res, next) => {
       const newRating = req.body.rating
 
@@ -68,7 +67,8 @@ ratingsRouter
       )
         .then(rating => {
           res
-            .status(204)
+            .status(201)
+            .json(serializeRating(rating))
         })
         .catch(next)
     })

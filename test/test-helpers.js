@@ -183,13 +183,13 @@ function makeExpectedDrink(drink) {
   }
 }
 
-function makeExpectedRatings(ratings, drink) {
+function makeExpectedRatings(ratings) {
   const expectedRatings = ratings
 
   return expectedRatings.map(rating => {
     return {
       id: rating.id,
-      drink_id: rating.drink_id,
+      drink_id: rating.drinkid,
       shop_id: rating.shop_id,
     }
   })
