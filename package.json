@@ -11,7 +11,7 @@
     "migrate:production": "heroku run npm run migrate",
     "start": "node src/server.js",
     "predeploy": "npm audit",
-    "deploy": "git push heroku master",
+    "deploy": "git push heroku main",
     "postdeploy": "npm run migrate:production"
   },
   "keywords": [],
@@ -30,13 +30,13 @@
     "morgan": "^1.10.0",
     "path": "^0.12.7",
     "pg": "^8.5.1",
+    "postgrator-cli": "^3.2.0",
     "xss": "^1.0.8"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^8.2.1",
     "nodemon": "^2.0.6",
-    "postgrator-cli": "^3.2.0",
     "supertest": "^6.0.1"
   }
 }
