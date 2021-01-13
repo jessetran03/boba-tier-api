@@ -1,29 +1,64 @@
-# Express Boilerplate!
+# Boba Tier
+ * * *
+ 
 
-This is a boilerplate project used for starting new projects!
+## Live
+ --------------
 
-## Set up
+Demo: [https://boba-tier-app.vercel.app/](https://boba-tier-app.vercel.app/) </br>
+Client Repo: [https://github.com/jessetran03/boba-tier-app](https://github.com/jessetran03/boba-tier-app) </br>
+Server Repo: [https://github.com/jessetran03/boba-tier-api](https://github.com/jessetran03/boba-tier-api)
 
-Complete the following steps to start a new project (NEW-PROJECT-NAME):
+## Summary
+ --------------
 
-1. Clone this repository to your local machine `git clone BOILERPLATE-URL NEW-PROJECTS-NAME`
-2. `cd` into the cloned repository
-3. Make a fresh start of the git history for this project with `rm -rf .git && git init`
-4. Install the node dependencies `npm install`
-5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
-6. Edit the contents of the `package.json` to use NEW-PROJECT-NAME instead of `"name": "express-boilerplate",`
+ Boba Tier is a web application that enables you to rate the drinks for boba shops by city. The application allows the user to track the boba drinks that they have rated and see which drinks are the top-rated drinks in the city. The user can also leave comments on the individual shop pages to express their thoughts about that shop.
 
-## Scripts
+## API Documentation
+ --------------
+ POST /api/auth/login </br>
+ POST /api/users </br>
+ GET /api/shops </br>
+ GET /api/shops/:shop_id </br>
+ GET /api/shops/:shop_id/comments </br>
+ GET /api/drinks </br>
+ POST /api/drinks </br>
+ GET /api/drinks/:drink_id </br>
+ DELETE /api/drinks/:drink_id </br>
+ GET /api/ratings </br>
+ POST /api/ratings </br>
+ PATCH /api/ratings/:rating_id </br>
+ POST /api/comments
 
-Start the application `npm start`
+## Screenshots
+  --------------
+ Landing Page:
+ ![Landing](screenshots/landing-page.png)
 
-Start nodemon for the application `npm run dev`
+ Login Page:
+ ![Login](screenshots/login-page.png)
 
-Run the tests `npm test`
+ Workout List Page:
+ ![ShopList](screenshots/shop-list.png)
 
-## Deploying
+ Workout Exercises Page:
+ ![Shop](screenshots/shop-page.png)
 
-When your new project is ready for deployment, add a new Heroku application with `heroku create`. This will make a new git remote called "heroku" and you can then `npm run deploy` which will push to this remote's master branch.
+ Exercise list Page:
+ ![TopTen](screenshots/top-ten-page.png)
+
+ Exercise Log Page:
+ ![MyRatings](screenshots/my-ratings.png)
+
+
+## Technologies Used
+ --------------
+
+ 1. JavaScript
+ 2. Node
+ 3. Express
+ 4. JWT
+ 5. Chai, Mocha
 
 ## Seeding
 

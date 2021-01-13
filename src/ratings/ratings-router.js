@@ -85,23 +85,6 @@ ratingsRouter
       .catch(next)
   })
 
-/*ratingsRouter
-  .route('/:rating_id')
-  .all(checkRatingExists)
-  .get((req, res) => {
-    res.json(serializeRating(res.rating))
-  })
-  .delete((req, res, next) => {
-    RatingsService.deleteRating(
-      req.app.get('db'),
-      req.params.rating_id
-    )
-      .then(numRowsAffected => {
-        res.status(204).end()
-      })
-      .catch(next)
-  })*/
-
 // async/await syntax for promises 
 async function checkRatingExists(req, res, next) {
   try {
