@@ -59,7 +59,3 @@ Server Repo: [https://github.com/jessetran03/boba-tier-api](https://github.com/j
  3. Express
  4. JWT
  5. Chai, Mocha
-
-## Seeding
-
-psql -U jessetran -d bobatier -f ./seeds/seed.bobatier_tables.sql
